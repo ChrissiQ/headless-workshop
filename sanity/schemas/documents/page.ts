@@ -13,6 +13,25 @@ export default defineType({
       title: 'Title',
       validation: (rule) => rule.required(),
     }),
+    defineField({
+      type: 'slug',
+      name: 'slug',
+      title: 'Slug',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      type: 'array',
+      name: 'sections',
+      title: 'Sections',
+      of: [
+        defineArrayMember({ type: 'MainHero' }),
+        defineArrayMember({ type: 'Quote' }),
+        defineArrayMember({ type: 'CtaBanner' }),
+        defineArrayMember({ type: 'FeaturedItems' }),
+        defineArrayMember({ type: 'FeaturedText' }),
+      ],
+      validation: (rule) => rule.required(),
+    }),
     // TODO: Create fields to input slug and sections
   ],
   // TODO: BONUS! Configure the preview for this schema to display slug as the title and 'Page' as the subtitle
